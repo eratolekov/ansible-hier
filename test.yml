@@ -1,0 +1,23 @@
+---
+- hosts: xyz
+  gather_facts: no
+  serial: 1
+
+  pre_tasks:
+
+  - debug:
+      msg: "##### Level2_1: {{ level1.level2_1 }}"
+    delegate_to: localhost
+
+  tasks:
+
+  - debug:
+      msg: "##### Level2_1: {{ level1.level2_1 }}"
+    delegate_to: localhost
+
+  post_tasks:
+
+  - debug:
+      msg: "##### Level2_1: {{ level1/level2_1 }}"
+    delegate_to: localhost
+...
